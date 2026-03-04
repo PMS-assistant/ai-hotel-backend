@@ -1,5 +1,15 @@
+# Environment
 .env
-.venv
+.venv/
+
+# Python
 __pycache__/
 *.pyc
-.env
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

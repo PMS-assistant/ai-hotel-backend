@@ -1,3 +1,7 @@
+"""
+Utility script to check which Claude models are available.
+Run: python -m llm.check_models
+"""
 from anthropic import Anthropic
 import os
 from dotenv import load_dotenv
