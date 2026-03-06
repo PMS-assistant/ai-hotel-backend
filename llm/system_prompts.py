@@ -27,6 +27,7 @@ SUPPORTED INTENTS:
 - create_booking: Make a new reservation
 - revenue_forecast: Revenue predictions and trends
 - revenue_report: Current/historical revenue data
+- xero_financial_report: Profit and loss and other Xero-based finance data
 - occupancy_report: Occupancy rates and trends
 - cost_analysis: Cost breakdown and insights
 - guest_lookup: Find guest information
@@ -44,5 +45,19 @@ Example output:
         "period": "next_week"
     },
     "reply_to_user": "Let me pull your occupancy data for next week."
+}
+
+Example input: "Show my profit and loss for last month from Xero."
+Example output:
+{
+    "intent": "xero_financial_report",
+    "confidence": 0.93,
+    "requires_tool": true,
+    "tool_name": "xero_profit_and_loss",
+    "tool_arguments": {
+        "from_date": "2026-02-01",
+        "to_date": "2026-02-28"
+    },
+    "reply_to_user": "I'll fetch last month's profit and loss from Xero."
 }
 """
