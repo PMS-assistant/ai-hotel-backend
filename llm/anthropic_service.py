@@ -1,12 +1,8 @@
-import os
 import json
-from dotenv import load_dotenv
 from anthropic import Anthropic
+from llm.config import ANTHROPIC_API_KEY, CLAUDE_MODEL, MAX_TOKENS
 from llm.system_prompts import DECISION_SYSTEM_PROMPT
 
-load_dotenv()
-
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
 
@@ -16,8 +12,8 @@ def ask_claude(user_message: str) -> dict:
     Returns parsed dict on success, or error dict on failure.
     """
     response = client.messages.create(
-        model="claude-sonnet-4-5-20250929",
-        max_tokens=1024,
+        model=CLAUDE_MODEL,
+        max_tokens=MAX_TOKENS,
         system=DECISION_SYSTEM_PROMPT,
         messages=[
             {
